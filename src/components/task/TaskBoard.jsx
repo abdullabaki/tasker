@@ -49,7 +49,7 @@ export default function TaskBoard() {
       setTaskToUpdate(null);
    }
    function handleDeleteTask(taskId) {
-      const tasksAfterDelete = tasks.filter((taskr) => taskr.id !== taskId);
+      const tasksAfterDelete = tasks.filter((task) => task.id !== taskId);
       setTasks(tasksAfterDelete);
    }
 
@@ -71,7 +71,12 @@ export default function TaskBoard() {
       const filtered = tasks.filter((task) =>
          task.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
-      setTasks(...filtered);
+      console.log(typeof(tasks));
+      setTasks([...filtered]);
+      console.log(filtered);
+      console.log(tasks);
+      console.log(typeof(tasks));
+   
    }
 
    return (
@@ -85,7 +90,6 @@ export default function TaskBoard() {
                   onSave={handleAddTask}
                   onCloseClick={handleCloseClick}
                   taskToUpdate={taskToUpdate}
-                  onDelete={handleDeleteTask}
                />
             )}
             <div className="rounded-xl border border-[rgba(206,206,206,0.12)] bg-[#1D212B] px-6 py-8 md:px-9 md:py-16">
@@ -97,6 +101,7 @@ export default function TaskBoard() {
                   tasks={tasks}
                   onEdit={handletask}
                   onFav={handleFavorite}
+                  onDelete={handleDeleteTask}
                />
             </div>
          </div>
