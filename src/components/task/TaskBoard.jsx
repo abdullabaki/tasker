@@ -71,12 +71,8 @@ export default function TaskBoard() {
       const filtered = tasks.filter((task) =>
          task.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
-      console.log(typeof(tasks));
+      console.log(typeof tasks);
       setTasks([...filtered]);
-      console.log(filtered);
-      console.log(tasks);
-      console.log(typeof(tasks));
-   
    }
 
    return (
